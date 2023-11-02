@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row mb-3">
+            <div class="col-md-12 col-sm-12 p-2 ">
+                <h1 class="text-center fw-bold">Signup For Our Newsletter</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class=" col-lg-8 col-md-12 col-sm-12 offset-lg-2">
+                <form id="signUpForm">
+                    <div class="form-group mb-2">
+                        <label for="fullName" class="mb-1">Fullname</label>
+                        <input type="text" name="fullName" id="fullName" class="form-control"
+                            required placeholder="Provide your full name">
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="email" class="mb-1">Email</label>
+                        <input type="email" name="email" id="email" class="form-control"
+                            required placeholder="Provide your correct email address">
+                    </div>
+                    <div class="form-group-mb-2">
+                        <label for="" class="mb-1">Gender</label>
+                        <div class="form-check mb-2">
+                            <input type="radio" name="gender" id="rMale" value="Male" 
+                                class="form-check-input">
+                            <label for="rMale" class="form-check-label">Male</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input type="radio" name="gender" id="rFemale" value="Female" 
+                                class="form-check-input">
+                            <label for="rFemale" class="form-check-label">Female</label>
+                        </div>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="editions" class="mb-2">Select your edition</label>
+                        <select class="form-select" id="editions" name="editions">
+                            <option selected>Select an edition</option>
+                            <option value="north">North Edition</option>
+                            <option value="south">South Edition</option>
+                            <option value="east">East Edition</option>
+                        </select>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="preferences mb-2">Preferences</label>
+                        <div class="form-check mb-2">
+                            <input type="checkbox" name="chkSports" id="chkSports"
+                                class="form-check-input">
+                            <label for="chkSports" class="form-check-label">Sports</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input type="checkbox" name="chkPolitics" id="chkPolitics"
+                                class="form-check-input">
+                            <label for="chkPolitics" class="form-check-label">Politics</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input type="checkbox" name="chkEnterainment" id="chkEnterainment"
+                                class="form-check-input">
+                            <label for="chkEnterainment" class="form-check-label">Entertainment</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" disabled>Signup</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+        integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+        crossorigin="anonymous"></script>
+    <script src="scripts/signup.js"></script>
+</body>
+
+</html>

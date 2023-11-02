@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+        >
+      <bean id="address1" class="com.nirm.spring1.Address">  
+      <property name="locality" value = "Ashok nagar"/>
+		<property name="city" value = "chennai"/>
+		<property name="state" value = "TN"/>  
+    </bean>    
+<bean id="empbean" class="com.nirm.spring1.Employee">
+<property name="name" value = "Nirmal Babu"/>
+<property name="email" value = "abc@gmail.com"/>
+<property name="address" value = "address1"/>
+</bean>
+<bean id= "empbean2" class="com.nirm.spring1.Employee">
+	<property name = "name" value = "Rohan"/>
+	<property name="email" value = "abc@gmail.com"/>	
+</bean>
+<bean id= "empbean3" class="com.nirm.spring1.Employee">
+	<property name = "name" value = "Nirmal Babu"/>	
+	<property name="surname" value="Jayaraman"/>
+	<property name="email" value = "abc@gmail.com"/>
+</bean>
+</beans>

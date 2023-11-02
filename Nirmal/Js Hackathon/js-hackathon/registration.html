@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Natwest Online Registration form</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <link rel="stylesheet" href="./css/index.css" />
+    <nav class="navbar navbar-dark bg-purple navbar-expand-lg py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col1-lg-2"></div>
+          <a class="navbar-brand" href="#"
+            ><h1>
+              <img class="img-logo" src="./images/NWG.png" />Natwest Group
+            </h1></a
+          >
+        </div>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="offcanvas offcanvas-end"
+          tabindex="-1"
+          id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel"
+        >
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+              Natwest Group
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body bg-purple">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item"></li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html"
+                  >Home</a
+                >
+              </li>
+              <a class="nav-link" aria-current="page" href="about.html"
+                >About us</a
+              >
+
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact us</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="services.html"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Services
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Loan</a></li>
+                  <li><a class="dropdown-item" href="#">Money Transfer</a></li>
+                  <li>
+                    <hr class="dropdown-divider" />
+                  </li>
+                  <li><a class="dropdown-item" href="#">News & Insights</a></li>
+                  <li><a class="dropdown-item" href="#">Careers</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row mb-3">
+        <div class="col-md-12 col-sm-12 p-2">
+          <h1 class="text-center fw-bold">Registration</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 col-md-12 col-sm-12 offset-lg-2">
+          <div class="alertMessage" id="alertMessage"></div>
+          <form id="signUpForm">
+            <div class="form-group mb-2">
+              <label for="fullName" class="mb-1">Fullname</label>
+              <input
+                type="text"
+                name="fullName"
+                id="fullName"
+                class="form-control"
+                required
+                placeholder="Provide your full name"
+              />
+            </div>
+            <div class="form-group mb-2">
+              <label for="email" class="mb-1">Email</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                class="form-control"
+                required
+                placeholder="Provide your correct email address"
+              />
+            </div>
+            <div class="form-group mb-2">
+              <label for="address" class="mb-1">Address</label>
+              <input
+                type="text"
+                name="Address"
+                id="address"
+                class="form-control"
+                required
+                placeholder="Provide your address"
+              />
+            </div>
+            <div class="form-group mb-2">
+              <label for="account" class="mb-1">Account no.</label>
+              <input
+                type="number"
+                name="account"
+                id="account"
+                class="form-control"
+                required
+                placeholder="Provide your account no."
+              />
+            </div>
+            <div class="form-group mb-2">
+              <label for="mobile" class="mb-1">Mobile no.</label>
+              <input
+                type="number"
+                pattern="[0-9]{10}"
+                name="mobile"
+                id="mobile"
+                minlength="10"
+                maxlength="10"
+                class="form-control"
+                required
+                placeholder="Provide your mobile no."
+              />
+            </div>
+            <div class="form-group mb-2">
+              <label for="password" class="mb-1">Password</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                class="form-control"
+                required
+                placeholder="Provide your mobile no."
+              />
+            </div>
+
+            <hr />
+            <div class="form-group my-3">
+              <div class="form-check">
+                <input
+                  type="checkbox"
+                  name="chkAgree"
+                  id="chkAgree"
+                  class="form-check-input"
+                />
+                <label for="agree" class="form-check-label"
+                  >I agree to the terms and conditions.</label
+                >
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary" id="signUp" disabled>
+              Register
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+      integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./src/registration.js"></script>
+  </body>
+</html>

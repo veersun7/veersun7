@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row mb-3">
+            <div class="col-md-12 col-sm-12 p-2 ">
+                <h1 class="text-center fw-bold ">Registration</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class=" col-lg-8 col-md-12 col-sm-12 offset-lg-2">
+                <form id="myinfo">
+                    <div class="form-group-mb-2">
+                        <span class="text-danger">*</span> Indicates a required field
+                    </div>
+                        
+                    
+                    <div class="form-group mb-2">
+                        <label for="fullName" class="mb-2 fw-bold text-muted">First name</label><span class="text-danger">*</span>
+                        <input type="text" name="fullName" id="fullName" class="form-control" required
+                            placeholder="Enter your work location">
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="employeeid" class="mb-2 fw-bold text-muted">Last name</label><span class="text-danger">*</span>
+                        <input type="string" name="number" id="number" class="form-control" required
+                            placeholder="Enter your employee ID">
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="fullName" class="mb-1 fw-bold text-muted">Username</label><span class="text-danger">*</span>
+                        <input type="text" name="fullName" id="fullName" class="form-control" required
+                            placeholder="Enter your manager name">
+                    </div>
+                    
+                    
+                    <div class="form-group mb-2 col-sm-6 col-sm-1 p-0">
+                        <h4 class="text-left fw-light font-size:0.5px">Address</h4>
+                    </div>
+                    
+                    <div class="form-group mb-2">
+                        <label for="GivenName" class="mb-2 fw-bold text-muted">Roll number</label><span class="text-danger">*</span>
+                        <input type="number" name="GivenName" id="GivenName" class="form-control" required
+                            placeholder="Given Name ">
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="MiddleName" class="mb-2 fw-bold text-muted">Email(s)</label><span class="text-danger">*</span>
+                        <input type="email" name="MiddleName" id="MiddleName" class="form-control" required
+                            placeholder="Middle Name">
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="familyname" class="mb-2 fw-bold text-muted">Phone number</label>
+                        <input type="number" name="familyName" id="familyName" class="form-control" required
+                            placeholder="Family Name">
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="Name" class="mb-2 fw-bold text-muted">Password</label>
+                        <input type="password" name="Name" id="Name" class="form-control" required
+                            placeholder="Local Given Name ">
+                    </div>
+                    <input type="submit" class="form-control btn btn-success" placeholder="Submit" onclick='adduser () '>
+                    
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+        integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+        crossorigin="anonymous"></script>
+    <script src="./register.js"></script>
+</body>
+
+</html>

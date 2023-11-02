@@ -1,0 +1,88 @@
+public class AnimalInheritanceAbstract {
+
+    public static void main(String[] args) {
+
+        Herbivore herbivore = new Herbivore();
+        herbivore.foodHabits();
+
+        Carnivore carnivore = new Carnivore();
+        carnivore.foodHabits();
+    }
+}
+
+
+/**
+ * Abstract classes, points to note
+ * 
+ * 1. Abstract classes cannot be instantiated, meaning you cannot create objects of an abstract
+ * class. Example below:
+ * 
+ * Animal animal = new Animal(); // error: Animal is abstract; cannot be instantiated
+ * 
+ * 2. Abstract classes can have abstract and non-abstract methods.
+ * 
+ * 3. Abstract classes must be extended and all the abstract methods must be implemented by the child class.
+ */
+
+abstract class Animal {
+
+    /**
+     * Abtract method
+     * 
+     * Method without body, these are used in inheritance to provide a common behaviour without an
+     * implementation, example:
+     * 
+     * public abstract void eat();
+     * 
+     * abstract access modifier is used to define a method as abstarct
+     * 
+     * abstract methods are defined in abstract classes
+     */
+
+    public abstract void foodHabits();
+
+    public abstract void makeSound();
+
+    // a non abstract method in an abstract class is allowed
+    public void sleep() {
+        System.out.println("I am sleeping");
+    }
+}
+
+
+// method overriding
+class Herbivore extends Animal {
+
+    /**
+     * While inheriting from an abstract class, the child class must implement all the abstract
+     * methods of the parent class.
+     */
+
+
+    // @Override annotation is optional
+    @Override
+    public void foodHabits() {
+        System.out.println("I am a herbivore and I eat plants");
+    }
+
+    @Override
+    public void makeSound() {
+        System.out.println("I am a herbivore and I make a sound");
+        
+    }
+}
+
+
+class Carnivore extends Animal {
+
+    @Override
+    public void makeSound() {
+        System.out.println("I am a carnivore and I make a sound");
+    }
+
+    @Override
+    public void foodHabits() {
+        System.out.println("I am a carnivore and I eat meat");
+    }
+
+}

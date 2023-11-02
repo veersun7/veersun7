@@ -1,0 +1,130 @@
+create database NwOctdb;
+use nwoctdb;
+
+create table customer (cust_id int primary key , fname varchar(20), lname varchar(20), city varchar(20), credit_limit double(6,2));
+select * from customer;
+insert into customer value(1,'Alka', 'Shukla', 'Indore',5000.00);
+insert into customer value(2,'Nandha', 'Kumar', 'Delhi',5000.00);
+insert into customer value(3,'Nirmal', 'Babu', 'Chennai',5000.00);
+insert into customer value(4,'Jaya', 'Raman', 'Indore',5000.00);
+insert into customer value(5,'Dinesh', 'Kumar', 'mumbai',5000.00);
+insert into customer value(6,'Ravi', 'Chander', 'Delhi',5000.00);
+insert into customer value(7,'Narayan', 'Deva', 'Banglore',5000.00);
+select * from customer;
+select fname, lname from customer;  
+select fname, lname, credit_limit from customer where credit_limit <=5000.00;  
+select * from customer where city = "indore";  
+select fname, lname, credit_limit from customer where credit_limit >=6000.00; 
+insert into customer value(8,'Rajan', 'chandar', 'Banglore',7000.00);
+select fname, lname, credit_limit from customer where credit_limit >=6000.00; 
+show tables;
+desc customer;
+select distinct city from customer ; 
+select * from customer where city = "indore" or credit_limit >6000.00;
+
+truncate table table_name;
+select * from customer;
+select fname, lname, credit_limit from customer order by credit_limit ;
+select now()
+select * from customer where credit_limit 6000;
+select city, count(*) from customer group by city ;
+alter table customer add column mob varchar(10);
+
+update customer set mob="9884690126" where cust_id = 1;
+select * from customer;
+update customer set mob="9884690123" where cust_id = 2;
+update customer set mob="9884690124" where cust_id = 3;
+update customer set mob="9884690127" where cust_id = 5;
+update customer set mob="9884690128" where cust_id = 6;
+update customer set mob="9884696126" where cust_id = 7;
+update customer set mob="9884634126" where cust_id = 8;
+update customer set mob="9884633126" where cust_id = 4;
+
+update customer set mob="7888633126" where cust_id = 4;
+
+select fname, lname from customer where fname like 'r%' ;
+select upper(fname), upper (lname) from customer where fname like 'r%';
+select min(credit_limit) from customer 
+select monthname(curdate());
+select sysdate(), sleep (20),now();
+
+alter table customer drop column mob;
+select * from customer;
+
+create table orders(order_id varchar(7) primary key, cust_id int, order_date date, amount double);
+insert into orders values('abc1',1,'12-12-22',1500);
+insert into orders values('abc2',2,'12-11-22',1100);
+insert into orders values('abc3',6,'12-6-22',2500);
+select * from orders;
+update orders set order_date='2022-12-11' where order_id = 'abc3' ;
+update orders set order_date='2022-12-10' where order_id = 'abc2' ;
+update orders set order_date='2022-12-09' where order_id = 'abc1' ;
+select * from orders;
+select orders.order_id, orders.cust_id, customer.lname from orders, customer;
+select orders.order_id, orders.cust_id,customer.cust_id, customer.lname from orders inner Join customer on orders.cust_id=customer.cust_id;
+select orders.order_id, orders.cust_id,customer.cust_id, customer.lname from orders right Join customer on orders.cust_id=customer.cust_id;
+select orders.order_id, orders.cust_id,customer.cust_id, customer.lname from orders left Join customer on orders.cust_id=customer.cust_id;
+select orders.order_id, orders.cust_id,customer.cust_id, customer.lname from orders cross Join customer on orders.cust_id=customer.cust_id;
+select * from customer;
+select A.fname as cust1, B.fname as cust2, A.city
+from customer A, customer B
+where A.cust_id <> B.cust.id
+and A.city = B.city
+order by city;
+
+select distinct A.fname as cust1, B.fname as cust2, A.city
+from customer A, customer B
+where A.cust_id <> B.cust_id
+and A.city = B.city
+order by city;
+create table accounts(account_id varchar(7) primary key, account_name varchar(20), mob_no varchar(10),account_type varchar(10), account_balance double(6,2), account_status varchar(10) );
+insert into account values('001','Divya','9884673892','Savings',1500.00, 'Active');
+insert into account values('002','Gunal','9884673892','Savings',6500.00, 'Dormant');
+insert into account values('003','Gunal','9884673892','Savings',6500.00, 'Inactive');
+insert into account values('004','Raj','9884673332','Current',5500.00, 'Closed');
+select * from account;
+drop table account; 
+select account.account_id, orders.cust_id, customer.lname from orders, customer;
+select orders.order_id, account.account_id,customer.cust_id, customer.lname from orders inner Join customer on orders.cust_id=account.account_id;
+create table accounts(account_id varchar(7) primary key, mob_no varchar(10),account_type varchar(10), account_balance double(6,2), account_status varchar(10) );
+insert into accounts values('001','9884673892','Savings',1500.00, 'Active');
+insert into accounts values('002','9884673892','Savings',6500.00, 'Dormant');
+insert into accounts values('003','9884673892','Savings',6500.00, 'Inactive');
+insert into accounts values('004','9884673332','Current',5500.00, 'Closed');
+select * from accounts;
+select accounts.account_id, accounts.account_type,accounts.mob_no,accounts.account_balance,accounts.account_status,customer.cust_id, customer.fname from accounts inner Join customer on accounts.account_id=customer.cust_id;
+create table order2(order_id varchar(7), cust_id int, orderdate date, primary key(order_id, cust_id),
+constraint fk_customer Foreign key(cust_id) references customer(cust_id) on delete cascade on update cascade);
+
+create view same_city as
+select A.fname as cust1, B.fname as cust2, A.city
+from customer A, customer B
+where A.cust_id <> B.cust_id
+and A.city = B.city
+order by city;
+
+select * from same_city;
+
+drop view if exists same_city;
+delimiter $$
+create function fun_sqr(num int)
+returns int 
+DETERMINISTIC
+begin
+declare square int ;
+set square = num * num;
+return square;
+end$$
+
+select fun_sqr(12);
+
+select empId, name, salary, dob, calc-age(dob) as Age from employee;
+
+delimiter //
+create procedure getAllCities()
+begin
+select distinct city from customer;
+end//
+delimiter ;
+call getAllCities();
+select * from customer;

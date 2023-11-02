@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+        >
+      
+     <bean id="skill1" class="com.nirm.CollectionDI.Skill">
+		<property name="sname" value="React"></property>
+	</bean>
+	<bean id="skill2" class="com.nirm.CollectionDI.Skill">
+		<property name="sname" value="JS"></property>
+	</bean>
+	<bean id="skill3" class="com.nirm.CollectionDI.Skill">
+		<property name="sname" value="Java"></property>
+	</bean>
+	<bean id="skill4" class="com.nirm.CollectionDI.Skill">
+		<property name="sname" value="Spring"></property>
+	</bean>
+		<bean id="skill5" class="com.nirm.CollectionDI.Skill">
+		<property name="sname" value="Angular"></property>
+	</bean>
+	<bean id="skillCollObj" class="com.nirm.CollectionDI.CollectionCl">
+		<constructor-arg name="skillList">
+			<list>
+				<ref bean="skill1" />
+				<ref bean="skill2" />
+				<ref bean="skill3" />
+				<ref bean="skill4" />
+				<ref bean="skill5" />
+				<ref bean="skill1" />
+			</list>
+			</constructor-arg>
+			
+				<constructor-arg name="skillSet">
+					<list>
+						<ref bean="skill1" />
+						<ref bean="skill2" />
+						<ref bean="skill3" />
+						<ref bean="skill4" />
+						<ref bean="skill5" />
+						<ref bean="skill1" />
+					</list>
+					
+				</constructor-arg>
+	</bean>
+</beans>
