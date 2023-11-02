@@ -1,0 +1,325 @@
+How to create a table :
+note : at the end of every command ; is compulsory
+create table sdetails(
+sid varchar2(6) primary key,
+fname varchar2(30) not null,
+lname varchar2(30),
+dob date
+);
+insert into sdetails values('s001','Sachin','Tendulkar',null);
+insert into sdetails values('s002','Ravi','Shastri','04-april-1972');
+insert into sdetails values('s003','Virender','Shewag','25-april-1972');
+insert into sdetails values('s004','Mahendra','Dhoni','24-may-1972');
+insert into sdetails values('s005','Rahul','Dravid','14-april-1973');
+insert into sdetails values('s006','Zaheer','Khan','06-june-1972');
+insert into sdetails values('s007','Anil','Kumble','04-july-1972');
+insert into sdetails values('s008','Suresh','Raina','07-may-1972');
+insert into sdetails values('s009','Virat','Kohli','10-april-1972');
+insert into sdetails values('s0010','Ishan','Kishan','29-april-1973');
+insert into sdetails values('s0011','Kani','Mani','25-april-1973','male');
+insert into sdetails values('s0012','Agni','Saaa','20-april-1973','male');
+insert into sdetails values('s0013','Sandy','Gzzz','15-april-1973','male');
+
+select * from sdetails;
+
+how to add dob to s001
+update sdetails set dob='24-april-1972' where sid='s001';
+
+to see the tables that we have created we have to type the below command
+select * from tab;
+
+to see the structure of our table we have to type the below command
+describe sdetails;
+
+how to add a column to the table after table is created
+alter table sdetails add gender varchar2(6);
+
+update sdetails set gender='male' where sid='s001';
+update sdetails set gender='male' where sid='s002';
+update sdetails set gender='male' where sid='s003';
+update sdetails set gender='male' where sid='s004';
+update sdetails set gender='male' where sid='s005';
+update sdetails set gender='male' where sid='s006';
+update sdetails set gender='male' where sid='s007';
+update sdetails set gender='male' where sid='s008';
+update sdetails set gender='male' where sid='s009';
+update sdetails set gender='male' where sid='s0010';
+
+how to remove a column once the table is created
+alter table sdetails drop column gender;
+
+how to increase the width of a existing column
+alter table sdetails modify fname varchar2(40);
+
+how to remove the complete table
+
+drop table sdetails;
+
+create a state table:
+
+create table state(
+stateid varchar2(6) primary key,
+Statename varchar2(30) not null
+);
+insert into state values ('Maharashtra','st008');
+insert into state (statename, stateid) values ('Maharashtra','st006');
+insert into state values ('st007','Tamilnadu');
+insert into state values ('st003','Kerala');
+insert into state values ('st004','Andhra');
+insert into state values ('st005','Gujarat');
+
+create table city(
+cityid varchar2(6) primary key,
+cityname varchar2(30) not null,
+stateid varchar2(6) references state(stateid)
+);
+
+insert into city (cityid, cityname, stateid) values ('ct001','Mumbai','st001');
+insert into city values ('ct002','Kanchi','st002');
+insert into city values ('ct003','Trissur','st003');
+insert into city values ('ct004','Hyderabad','st004');
+insert into city values ('ct005','Rajkot','st005');
+
+create table marks(
+sid varchar2(6) references sdetails(sid),
+tnumber number(3) not null,
+sub1 number(4) check(sub1 between 0 and 100),
+sub2 number(4) check(sub2 between 0 and 100),
+sub3 number(4) check(sub3 between 0 and 100),
+constraint k1 primary key(sid,tnumber)
+);
+
+insert into marks values ('s001', 1, 75,88,92);
+insert into marks values ('s002', 1, 66,78,93);
+insert into marks values ('s003', 1, 95,28,52);
+insert into marks values ('s004', 1, 22,45,33);
+insert into marks values ('s001', 2, 66,38,62);
+insert into marks values ('s002', 2, 72,98,31);
+insert into marks values ('s003', 2, 18,93,72);
+insert into marks values ('s004', 2, 46,75,63);
+insert into marks values ('s005', 2, 77,65,53);
+insert into marks values ('s006', 2, 56,55,43);
+
+
+create table con1(
+sid varchar2(6) references sdetails(sid),
+cityid varchar2(6) references city(cityid)
+);
+
+insert into con1 values ('s001', 'ct001');
+insert into con1 values ('s002', 'ct002');
+insert into con1 values ('s003', 'ct003');
+insert into con1 values ('s004', 'ct004');
+insert into con1 values ('s005', 'ct005');
+insert into con1 values ('s006', 'ct001');
+insert into con1 values ('s007', 'ct002');
+insert into con1 values ('s008', 'ct005');
+insert into con1 values ('s009', 'ct002');
+
+inserting data is called as DML - Data Definition Language
+
+We have learnt how to create command and create a table.
+how to use alter command and add, remove and modify columns.
+how to use drop command to remove a table.
+
+DML - Data Manipulation Language
+---
+how to insert values to the table using insert command.
+how to change the data using update command.
+how to change the data using delete command.
+important note : when we use update and delete command it will update globally which is very dangerous.
+Therefore when we use update and delete command we should always use 'where clause' to give the condition.
+
+Update and delete command will happen only to this condition.
+
+Rollback : Undo the changes done. AFter commit rollback cannot be done.
+
+update the title with case sensitive for the entire table(globally):
+ update sdetails set LNAME = INITCAP(LNAME);
+update the title with case sensitive for the particular column :
+ update sdetails set LNAME = INITCAP(LNAME) where sid = 'S001';
+update the title by changing name for the particular column :
+update city set CITYNAME = 'Bombay' where CITYID='ct001';
+
+TCL - Transaction Control Language
+---
+This language will save or rollback for insert, update and delete command.
+The oracle database is very strong and handles concurrency control by locking.
+When insert,update and delete command happens in one session that will be locked for the other session,
+the lock will be opened only when TCL commands are given.
+TCL commands are commit and rollback.
+If we dont give commit for the long period,the record will be locked for longer time and it will not available for other sessions.
+
+DCL - Data Control Language
+------------
+Two types of DCL :
+1.Grant
+2.Revoke
+Mianly DCL is concerned with giving permission to the other users about outr databse.
+Here we should have multiple users and one user can give permission to another user by using DCL command.
+
+Permission to create a user:
+1)alter session set "_ORACLE_SCRIPT"=true;
+How to create a new user :
+2)create user suren identified by suren; -only profile created but cannot login until we give session permission.
+How to grant permissions of DBA:
+grant dba to suren; - high level permission not recommended
+3)grant create session to suren; - permission to login to the main user.
+4)grant select on sdetails to suren; - permission to view the particular table.
+grant insert on sdetails to suren; - permission to write the particular table. we can add only new records.
+grant (update, delete) on sdetails to raghul; - permission to update or remove a row from the table
+revoke select on sdetails from raghul; - erases the permission to the user.
+creating a row from another user:
+insert into system.sdetails values('S011','Murali','vijay', '10-June-1967');
+insert into system.sdetails values('S012','Manish','pandey', '10-June-1967');
+to view:
+select * from system.sdetails;
+
+DQL - Data Query Language:
+---------------
+select command : Extracting or retrieving the data from the table or from multiple tables.
+Every select command has got selection and projection.
+Selection means selecting few rows by giving "where" clause and condition.
+Projection means selecting the column by giving the column name.
+Basic syntax of select is select all * from tablename;
+-this will select data along with duplicate data.
+-select distinct * from table name; it will separate the duplicate and similar to select all command.
+-* stands for all the columns.
+-select *
+Command 1 : to select all the rows and columns of a table.
+select * from sdetails;
+Command 2 : to select few columns from the table.
+select sid, fname from sdetails;
+
+to increase the page size(number of lines in the page)
+set pagesize 90;
+
+Command 3 : to select few rows from the table.
+select * from sdetails where sid = 's001';
+select * from sdetails where sid in ('s001','s005');
+select * from sdetails where sid between 's001'and 's005';
+select * from sdetails where fname like 'R%';--------at the start of the name
+select * from sdetails where fname like '%r';------at the end of the name
+select * from sdetails where upper (fname) like '%L'; ----------this will tc of case sensitive
+select * from sdetails where upper (fname) like '%L%';------------thsi is for anywhere
+
+Command 4 : to select the rows where the column has null values:
+select * from sdetails where lname is null;
+
+Command 5 : to select and project together.
+select sid, fname from sdetails where upper (fname) like 'A%';
+
+Command 6 : to select all negative conditions :
+select sid, fname from sdetails where upper (fname) not like 'A%';
+select * from sdetails where sid between 's001'and 's005';
+select * from sdetails where (sid between 's001'and 's005') and (upper (fname) not like 'A%);
+
+Comamnd 7 : applying the function.
+select upper (fname), lower(lname), initcap(fname), substr(fname,1,2) from sdetails;-----1 is the position and 2 is the character
+
+Command 8 : applying alias for the column(a temp name for a column).
+select upper (fname) ufname, lower(lname) llname, initcap(fname) cname, substr(fname,1,2) subname from sdetails;
+select concat (concat (fname, '-'), lname) name from sdetails;
+
+Command 9: applying date functions.
+select sid, to_char(dob,'dd-mm-yyyy') from sdetails;
+select sid, to_char(dob,'yyyy-mm-dd') from sdetails;
+
+Command 10: applying statistical function.
+select count (*) from sdetails;
+select count (*) from sdetails where to_char(dob,'mm')='06';
+select sid, count(tnumber) test from marks group by sid;
+
+Command 11 : to calculate age.
+
+select sid, fname, round(((sysdate-dob)/365),2) age from sdetails;
+
+Command 12 : to select the data from multiple tables. (which is also called as De-Normalisation).
+But in terms of SQL we call it as join. Join will connect the rows of different tabel.
+When we want to join there should be a common key(Primary or Foreign key) among them. If common key
+is not there then it becomes cartiean product(which multipies one row with all rows).
+Basically there are inner and outer join. Inner join means the data present in both the table
+will be connected. But the data that is present then it is called as outer join.
+In outer join 3 types : Left, Right and Full. We use left outer join mostly. Left outer join means primary key
+will be present and foreign key will not be there.
+
+Example : Left outer join - student enrolled and not attended the test.
+	  Right outer join - Exam attended but student not enrolled.
+
+How to display student name and city he belongs to:
+
+important note : when we select data form multiple tables to indicate from which table we are going to take the data we should use table alias( a temporary name given to a table is called table alias).
+
+(shows only the assigned values)
+select a.sid, a.fname, b.cityname from sdetails a inner join 
+con1 c on(a.sid = c.sid) inner join 
+city b on(b.cityid = c.cityid);
+
+(shows including the unassigned values)
+select a.sid, a.fname, b.cityname from sdetails a left outer join 
+con1 c on(a.sid = c.sid) left outer join 
+city b on(b.cityid = c.cityid);
+
+(shows only the unassigned values)
+select a.sid, a.fname, b.cityname from sdetails a left outer join 
+con1 c on(a.sid = c.sid) left outer join 
+city b on(b.cityid = c.cityid) where b.cityname is null;
+
+how to display the above data along with the statename:
+
+select a.sid, a.fname, b.cityname, d.statename from sdetails a inner join 
+con1 c on(a.sid = c.sid) inner join 
+city b on(b.cityid = c.cityid) inner join
+state d on (b.stateid = d.stateid); 		
+
+how to display sid, fname, testnumber, totalmarks of the respective test number:
+
+to find total :
+
+select a.sid, a.fname, b.tnumber, (b.sub1+b.sub2+b.sub3) tot from sdetails a 
+inner join marks b on(a.sid=b.sid);
+
+to display total in ascending order:
+
+select a.sid, a.fname, b.tnumber, (b.sub1+b.sub2+b.sub3) tot from sdetails a 
+inner join marks b on(a.sid=b.sid) order by a.fname;
+
+to display total in descending order:
+
+select a.sid, a.fname, b.tnumber, (b.sub1+b.sub2+b.sub3) tot from sdetails a 
+inner join marks b on(a.sid=b.sid) order by a.fname desc;
+
+
+to display total and average:
+-------------------------------
+select a.sid, a.fname, b.tnumber, (b.sub1+b.sub2+b.sub3) tot,round((b.sub1+b.sub2+b.sub3)/3,0) avg from sdetails a 
+inner join marks b on(a.sid=b.sid) order by a.fname ;
+
+
+to display total with pass or fail details:
+
+select a.sid, a.fname, b.tnumber, (b.sub1+b.sub2+b.sub3) tot,round((b.sub1+b.sub2+b.sub3)/3,0) avg,
+case when round((b.sub1+b.sub2+b.sub3)/3,0)<35 then 
+'fail' 
+else 'pass' end result
+from sdetails a 
+inner join marks b on(a.sid=b.sid) order by a.fname ;
+
+
+to display only fail student details:
+
+select a.sid, a.fname, b.tnumber, (b.sub1+b.sub2+b.sub3) tot,round((b.sub1+b.sub2+b.sub3)/3,0) avg,
+case when round((b.sub1+b.sub2+b.sub3)/3,0)<35 then 
+'fail' 
+else 'pass' end result
+from sdetails a 
+inner join marks b on(a.sid=b.sid) where round((b.sub1+b.sub2+b.sub3)/3,0)<35 order by a.fname ;
+
+Sub query :
+--------------
+Sub query means a query inside a query. A syb qyery can be of 3 types:1.Inline view, 2.Normal sub query, 3.Corelated sub-query
+
+Inline view : A subquery designed from clause instead of using a table name.
+Write a query to display student id,name and no.of test he has taken and if test has not taken show absent.
+
+

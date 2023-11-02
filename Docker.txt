@@ -1,0 +1,25 @@
+in postman
+{
+   "id" : "101",
+  "logo": "Apple",
+  "name": "Apple INC",
+  "shares": 1000.0,
+  "count": 500,
+  "returns": "10%"
+}
+
+docker build -t watchlist:2.0 .
+
+
+
+docker run -p 9973:9973 watchlist:2.0
+
+systemctl status mongod
+
+
+mongodb://localhost:27017
+
+docker run --network=my-network -d --name watchlist-app watchlist:2.0
+
+
+

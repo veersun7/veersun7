@@ -1,0 +1,12 @@
+Question 1 : Explain the need of the OS in a computer and what is kernel and shell?
+
+Answer : Os is the Operating system which acts as the interface between the system software and hardware. There are different
+types of OS available like Windows, Linux, Mac ect. Is allows you to communicate with the computer. Without OS a computer cannot operate. Every applications
+run on a computer needs the OS support to run and perform the tasks given by the users. Kernel is the heart of the Operating system whereas shell
+is a program. These are the two important components that work together to enable the use to interact with the system.
+Shell allows the users to communicate with the Kernel. Kernel controls all the tasks of the system. Shell is the interface between the Kernel and User.
+Kernel operates at a lower level than shell and interacts with hardware. Shell accepts commans from the user and Kernel receives the commans from shell.
+
+
+
+

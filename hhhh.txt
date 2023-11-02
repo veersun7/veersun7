@@ -1,0 +1,270 @@
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import Four from "./images/Four.jpg";
+import "./index.css";
+
+export default function Register() {
+  const [formvalues, setFormValues] = useState({
+    name: "",
+    address: "",
+    accountno: "",
+    email: "",
+    password: "",
+    mobileno: "",
+  });
+  const [formErrors, setFormErrors] = useState({});
+  const [isSubmit, setIsSubmit] = useState(false);
+
+  console.log(formvalues);
+
+  const handlechange = (e) => {
+    const { name, value } = e.target;
+    setFormValues({ ...formvalues, [name]: value });
+  };
+
+  const onRegisterFormSubmit = (e) => {
+    e.preventDefault();
+    setFormErrors(validate(formvalues)); //validation
+    setIsSubmit(true);
+
+    const url = "http://localhost:3001/users";
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formvalues),
+    };
+    fetch(url, options)
+      .then((res) => {
+        if (res.status === 201) {
+          console.log("Success");
+        }
+        return res.json();
+      })
+      .then((data) => {
+        setFormValues({
+          name: "",
+          address: "",
+          accountno: "",
+          email: "",
+          password: "",
+          mobileno: "",
+        });
+        console.log(`User registered with id ${data.id}`);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    if ((Object.keys(formErrors).length === 0) & isSubmit) {
+      routeChange();
+    }
+  }, [formErrors]);
+
+  const validate = (values) => {
+    const errors = {};
+
+    if (!values.email) {
+      errors.email = "A valid Email Address is required!!";
+    }
+    if (!values.name) {
+      errors.name = "Name required!! (Alphabets Only)";
+    }
+    if (!values.address) {
+      errors.address = "Please update Address!!";
+    }
+    if (!values.accountno) {
+      errors.accountno = "Please update account no!!";
+    }
+    if (!values.mobileno) {
+      errors.mobileno = "mobile number required!";
+    }
+    if (!values.password) {
+      errors.password = "password required!";
+    }
+
+    return errors;
+  };
+
+  let navigate = useNavigate();
+
+  const routeChange = () => {
+    setTimeout(() => {
+      let path = `/Login`;
+      navigate(path);
+    }, 4000);
+  };
+
+  let navigate1 = useNavigate();
+  const routeChange1 = () => {
+    let path = `/`;
+    navigate1(path);
+  };
+  return (
+    <>
+      <section className="vh-95">
+        <div className="container ">
+          <div className="row d-flex align-items-center justify-content-center  h-100">
+            <div className="col-md-12 col-lg-7 col-xl-6">
+              <h1 className="text-center fs-1 p-3 mb-1 text-white fst-italic">
+                Register
+              </h1>
+            </div>
+          </div>
+
+          <div className="row d-flex align-items-center justify-content-center h-100">
+            <div className="col-md-08 col-lg-7 col-xl-6">
+              <form onSubmit={onRegisterFormSubmit}>
+                <div className="form-group mb-2">
+                  <label
+                    for="email"
+                    className="mb-1 fs-5 p-1 text-white fst-italic"
+                  >
+                    Email
+                  </label>
+                  <span className="text-danger">*</span>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    className="form-control"
+                    placeholder="Provide your Email address"
+                    onChange={handlechange}
+                    value={formErrors.email}
+                  />
+                  <p className="text-danger">{formErrors.email}</p>
+                </div>
+
+                <div className="form-group mb-2">
+                  <label
+                    for="name"
+                    className="mb-0 fs-5 p-1 text-white fst-italic"
+                  >
+                    Name
+                  </label>
+                  <span className="text-danger">*</span>
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    className="form-control"
+                    placeholder="Provide your Name"
+                    onChange={handlechange}
+                    value={formErrors.name}
+                  />
+                  <p className="text-danger">{formErrors.name}</p>
+                </div>
+
+                <div className="form-group form-group-mb-2">
+                  <label
+                    for="address"
+                    className="mb-1 fs-5 p-1 text-white fst-italic"
+                  >
+                    Address
+                  </label>
+                  <span className="text-danger">*</span>
+                  <textarea
+                    name="address"
+                    id="address"
+                    className="form-control mb-1"
+                    placeholder="Address"
+                    onChange={handlechange}
+                    value={formErrors.address}
+                  />
+                  <p className="text-danger">{formErrors.address}</p>
+                </div>
+
+                <div className="form-group mb-2">
+                  <label
+                    for="accountno"
+                    className="mb-1 fs-5 p-1 text-white fst-italic"
+                  >
+                    Account no
+                  </label>
+                  <span className="text-danger">*</span>
+                  <input
+                    type="number"
+                    name="accountno"
+                    pattern="[0-10]{11}"
+                    id="accountno"
+                    className="form-control"
+                    placeholder="Provide your Account no"
+                    onChange={handlechange}
+                    value={formErrors.accountno}
+                  />
+                  <p className="text-danger">{formErrors.accountno}</p>
+                </div>
+
+                <div className="form-group mb-2">
+                  <label
+                    for="mobileno"
+                    className="mb-1 fs-5 p-1 text-white fst-italic"
+                  >
+                    Mobile no
+                  </label>
+                  <span className="text-danger">*</span>
+                  <input
+                    type="tel"
+                    name="mobileno"
+                    id="mobileno"
+                    pattern="[0-9]{10}"
+                    className="form-control"
+                    placeholder="Provide your Phone Number"
+                    onChange={handlechange}
+                    value={formErrors.mobileno}
+                  />
+                  <p className="text-danger">{formErrors.mobileno}</p>
+                </div>
+
+                <div className="form-group mb-2">
+                  <label
+                    for="password"
+                    className="mb-1 fs-5 p-1 text-white fst-italic"
+                  >
+                    Password
+                  </label>
+                  <span className="text-danger">*</span>
+                  <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    className="form-control"
+                    placeholder="Provide your Password here"
+                    onChange={handlechange}
+                    value={formErrors.password}
+                  />
+                  <p className="text-danger">{formErrors.password}</p>
+                </div>
+
+                {(Object.keys(formErrors).length === 0) & isSubmit ? (
+                  <label className="message text-white fst-italic">
+                    {" "}
+                    <h1>Registered Successfully</h1>{" "}
+                  </label>
+                ) : (
+                  <div className="message text-danger">
+                    * You must fill in all the above fields before submit{" "}
+                  </div>
+                )}
+
+                <div>
+                  <button
+                    type="submit"
+                    className="btn btn-primary mb-4 mt-4 fst-italic"
+                    id="register "
+                  >
+                    Register
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div className=" col-lg-6 col-md-6 col-sm-12">
+              <img src={Four} className="img-fluid2" alt="twoimg" />
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}

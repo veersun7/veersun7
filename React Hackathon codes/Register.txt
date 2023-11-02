@@ -1,0 +1,342 @@
+import React, { useState, useRef } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import Navbar from "./Navbar";
+import { IconButton } from "@mui/material";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
+import {
+  Button,
+  TextField,
+  Typography,
+  Container,
+  CssBaseline,
+  InputAdornment,
+  AppBar,
+} from "@mui/material";
+
+import { Email, Phone, VpnKey, Lock } from "@mui/icons-material";
+
+const styles = {
+  root: {
+    display: "flex",
+    flexDirection: "column",
+    minHeight: "100vh",
+    backgroundColor: "white",
+    color: "black",
+  },
+  form: {
+    display: "flex",
+    flexDirection: "column",
+  },
+  whiteText: {
+    color: "black",
+  },
+  input: {
+    marginBottom: "1rem",
+  },
+  errorText: {
+    color: "red",
+    marginBottom: "1rem",
+  },
+  inputField: {
+    "& .MuiOutlinedInput-input": {
+      color: "black",
+    },
+    "& .MuiInputLabel-root": {
+      color: "black",
+    },
+    "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+      borderColor: "black",
+    },
+  },
+};
+
+const isEmailValid = (email) => {
+  const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+  return emailPattern.test(email);
+};
+
+const isPasswordValid = (password) => {
+  return password.length >= 8;
+};
+
+const isMobileNumberValid = (mobileNumber) => {
+  const numberPattern = /^[0-9]+$/;
+  return numberPattern.test(mobileNumber) && mobileNumber.length === 10;
+};
+
+function Register({ showLinks }) {
+  const [formData, setFormData] = useState({
+    username: "",
+    email: "",
+    mobileNumber: "",
+    accountNumber: "",
+    password: "",
+    confirmPassword: "",
+  });
+  const [showPassword, setShowPassword] = useState(false);
+
+  const [registrationStatus, setRegistrationStatus] = useState("");
+  const [touchedFields, setTouchedFields] = useState({
+    email: false,
+    mobileNumber: false,
+    password: false,
+  });
+  const formRef = useRef(null);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleFieldBlur = (fieldName) => {
+    setTouchedFields({
+      ...touchedFields,
+      [fieldName]: true,
+    });
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const isEmailFieldValid =
+      !touchedFields.email || isEmailValid(formData.email);
+    const isMobileNumberFieldValid =
+      !touchedFields.mobileNumber || isMobileNumberValid(formData.mobileNumber);
+    const isPasswordFieldValid =
+      !touchedFields.password || isPasswordValid(formData.password);
+
+    if (
+      !isEmailFieldValid ||
+      !isMobileNumberFieldValid ||
+      !isPasswordFieldValid ||
+      formData.confirmPassword !== formData.password
+    ) {
+      setRegistrationStatus("Registration failed. Please check your input.");
+      return;
+    }
+
+    try {
+      const response = await axios.post(
+        "http://localhost:8089/userreg",
+        formData
+      );
+      console.log("Registration successful:", response.data);
+      setRegistrationStatus("Registration successful");
+
+      formRef.current.reset();
+
+      setFormData({
+        ...formData,
+        password: "",
+        confirmPassword: "",
+      });
+    } catch (error) {
+      console.error("Registration failed:", error);
+      setRegistrationStatus("Registration failed");
+    }
+  };
+
+  return (
+    <div style={styles.root}>
+      <Navbar />
+      <AppBar position="static"></AppBar>
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+
+        <Typography component="h1" variant="h5">
+          Register
+        </Typography>
+        {registrationStatus && (
+          <Typography variant="body1" sx={styles.errorText}>
+            {registrationStatus}
+          </Typography>
+        )}
+        <form onSubmit={handleSubmit} style={styles.form} ref={formRef}>
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="Email Address"
+            name="email"
+            type="email"
+            onChange={handleChange}
+            onBlur={() => handleFieldBlur("email")}
+            error={!isEmailValid(formData.email) && touchedFields.email}
+            helperText={
+              touchedFields.email && !isEmailValid(formData.email)
+                ? "Enter a valid email address"
+                : ""
+            }
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <Email />
+                </InputAdornment>
+              ),
+            }}
+            sx={styles.inputField}
+          />
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="username"
+            label="Username"
+            name="username"
+            onChange={handleChange}
+            sx={styles.inputField}
+          />
+          <TextField
+            variant="outlined"
+            margin="normal"
+            fullWidth
+            id="address"
+            label="Address"
+            name="address"
+            onChange={handleChange}
+            sx={styles.inputField}
+          />
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="accountNumber"
+            label="Account Number"
+            name="accountNumber"
+            onChange={handleChange}
+            sx={styles.inputField}
+          />
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="mobileNumber"
+            label="Mobile Number"
+            name="mobileNumber"
+            onChange={handleChange}
+            onBlur={() => handleFieldBlur("mobileNumber")}
+            error={
+              !isMobileNumberValid(formData.mobileNumber) &&
+              touchedFields.mobileNumber
+            }
+            helperText={
+              touchedFields.mobileNumber &&
+              !isMobileNumberValid(formData.mobileNumber)
+                ? "Enter a valid mobile number"
+                : ""
+            }
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <Phone />
+                </InputAdornment>
+              ),
+            }}
+            sx={styles.inputField}
+            inputProps={{
+              maxLength: 10,
+            }}
+          />
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            name="password"
+            label="Password"
+            autoComplete="new-password"
+            type={showPassword ? "text" : "password"}
+            id="password"
+            onChange={handleChange}
+            value={formData.password}
+            onBlur={() => handleFieldBlur("password")}
+            error={
+              !isPasswordValid(formData.password) && touchedFields.password
+            }
+            helperText={
+              touchedFields.password && !isPasswordValid(formData.password)
+                ? "Password must be at least 8 characters long"
+                : ""
+            }
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <VpnKey />
+                </InputAdornment>
+              ),
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    onClick={() => setShowPassword(!showPassword)}
+                    edge="end"
+                  >
+                    {showPassword ? <Visibility /> : <VisibilityOff />}
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+            sx={styles.inputField}
+          />
+
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            name="confirmPassword"
+            label="Confirm Password"
+            type="password"
+            id="confirmPassword"
+            onChange={handleChange}
+            error={
+              formData.confirmPassword !== formData.password &&
+              touchedFields.password
+            }
+            helperText={
+              touchedFields.password &&
+              formData.confirmPassword !== formData.password
+                ? "Passwords do not match"
+                : ""
+            }
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <Lock />
+                </InputAdornment>
+              ),
+            }}
+            sx={styles.inputField}
+          />
+
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            style={{ backgroundColor: "purple", color: "white" }}
+          >
+            Register
+          </Button>
+        </form>
+
+        {showLinks && (
+          <div>
+            Already have an account?{" "}
+            <Link to="/login" style={{ color: "purple" }}>
+              <b>Login</b>
+            </Link>
+          </div>
+        )}
+      </Container>
+    </div>
+  );
+}
+
+export default Register;

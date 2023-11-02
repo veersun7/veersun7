@@ -1,0 +1,66 @@
+Register.js
+
+let users = new Array();
+var storedName = "";
+var storedPassword = "";
+
+
+
+function addUser(){
+    const Name = document.getElementById('name').value;
+    const emailId = document.getElementById('email').value;
+    const password = document.getElementById('pass').value;
+    
+    let newUser = {
+        
+        "Name": Name,
+        "Email": emailId,
+        "Password": password,
+    };
+    users.push(newUser);
+    storedName = Name;
+    storedPassword = password;
+
+    alert('Successfully Registered ')
+    clearForm();
+}
+function clearForm() {
+  
+    document.getElementById('name').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('pass').value = '';
+}
+
+// function checkUser(){
+//     const Lname = document.getElementById('lname').value;
+//     const Lpassword = document.getElementById('lpass').value;
+
+//     if( Lname === storedName && Lpassword === storedPassword){
+//          alert('Login Successful')
+//     }
+//     else{
+//         alert('Login failed! Check username or password')
+//     }
+// }
+
+// function event(event){
+//     event.preventDefault();
+// }
+
+
+
+function checkUser(){
+    const Lname = document.getElementById('lname').value;
+    const Lpassword = document.getElementById('lpass').value;
+
+    if( Lname === storedName && Lpassword === storedPassword){
+         alert('Login Successful')
+    }
+    else{
+        alert('Login failed! Check username or password')
+    }
+}
+
+// function event(event){
+//     event.preventDefault();
+// }

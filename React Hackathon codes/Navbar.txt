@@ -1,0 +1,31 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import { AppBar, Toolbar, Typography, Button, Box } from "@mui/material";
+
+function Navbar() {
+  return (
+    <AppBar position="static" sx={{ backgroundColor: "purple" }}>
+      <Toolbar sx={{ justifyContent: "space-between" }}>
+        <Box display="flex" alignItems="center">
+          <Typography variant="h" component="div">
+            DiWallet
+          </Typography>
+          <img src="/images/logo.jpg" alt="DigiPay Logo" width="50" />
+        </Box>
+        <div>
+          <Button color="inherit" component={Link} to="/">
+            Home
+          </Button>
+          <Button color="inherit" component={Link} to="/register">
+            Register
+          </Button>
+          <Button color="inherit" component={Link} to="/login">
+            Login
+          </Button>
+        </div>
+      </Toolbar>
+    </AppBar>
+  );
+}
+
+export default Navbar;

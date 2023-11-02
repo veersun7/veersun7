@@ -1,0 +1,205 @@
+Core Java :
+
+Fundamental of the Java.
+With only core java we cannot develop an app.
+But same core java is used in advance part so the learning core java is important
+
+Features of jave :
+
+1.Java supports OOPS
+2.Dynamic programming
+a.we can create the object in run time
+b.we can remove the object in run time(garbage collection)
+c.user need to create object
+d.Garbage collection is auto
+e.when the object is de-referred the object will go for garbage collection
+3.Multi threading : Multiple users can access the class at the same time which is also called concurrent
+programming
+4.Robust : Different types of app can be developed using java like
+a.j2ee
+b.Spring boot microservice
+c.socket programming
+d.messaging
+5.it is a platform independent
+a.once we write code in one os we run on any os without any changes
+b.this two level one level is compilation and interpretation
+c.user write x.java->compiled to x.class->interpreted by jvm->machine code->executed by os
+d.java->bytecode->machine->executed
+e.since the machine code is not saved to execute the java each time we need jvm to interpret
+f.The JVM is different for each os(jvm is platform dependent)
+g.write once execute anywhere
+
+The different versions of java are
+1.java 1.6
+2.java 1.7 more on unanimous(class with out name)
+3.java 1.8 is base version of all higher version
+	a.Lambda expression
+	b.Functional programming
+	c.Stream
+	d.Multi thread
+	e.File stream
+4.Java 11,13,17,19
+5.LTS java 1.8,11,13
+
+Executing jav :
+
+1.We need java kid (JDK) this has got compiler and interpreter
+2.JRE interpreter
+3.Javac and filename with .java will compile the code
+4.Java and filename without .java
+5.Before we starting many of the tool we should first install the jdk and environment variable
+6.We can also use Maven build tool which compile and build the java code it will add the dependency
+automatically
+	a.POM project object module
+	b.it will compile
+	c.it will test
+	d.it will do code coverage
+	e.modularity
+7.Equivalent for maven is gradel, ANT
+
+Java rules :
+
+1.It is case sensitive we need to write the code in lower case
+2. ; as eol
+3.In one file only one public class is allowed
+4.Suppose if we need more public class we need create in separate files
+5.The public class anme should be the file name
+6.The java can be executed with main or without main method/function
+7.The signature of the main mathod is 
+	a. Public static void main(String[]args)
+	b.This is the reason the java is not a complete object oriented
+8.Here string is also immutable class(when we do the chnaged the new object is created)
+9.Data types are a.Primitive(if any language support primitive they are not complete oops)
+		 b.Wrapper class
+
+Primitive						Wrapper class
+int(4),float(4),char(2),long(8),double(8),-boolean	Integer,float,charter,Long,Double,Boolean
+Good for complex computation				Storage and collection
+External type conversion				Has method to convert from one data type to another
+-float x						Float x
+int y =(int)x						integer y
+							y.valueof(x)	
+
+Note string is not a data type it is class
+
+Class							Object
+Is blue print of the entity which contain data		A memory allocated to the class is ready 
+and method but not ready to use
+First we need to create a class
+
+
+
+
+
+important note :
+
+inside java class code should be written inside method
+outisde method only we can declare
+
+variables :
+
+Class variable:A variable declared outside the method with key called as static. This variable can be
+called without object creation. This should be called by class name or object name if object is
+present. There will be only one coy of the class variable thoughout the app.
+
+Instance variable: A variable declared outside the method without key static. These variables can be
+called with object reference or directly if the method is non static. It is recognized only in one
+instance or there is separate copy for every instance.
+
+Local variable:A variable declared inside a method or block is local and it is recognized only in that
+block. We should call by only name there is no this or class name
+
+Instance method 					Class method
+Method without static					Method with static
+Instance method can call static and instance method	Class method can call only class method but not
+both							instance
+Can access both class variable and instance		can call only static or class Variable
+variable
+
+Constructor 
+•	Constructor is a method that will get executed automatically when object is created.
+•	We can't call constructor explicitly 
+•	Constructor will get executed only once while object is created
+•	Constructor will have same name as class
+•	Constructor is also method/function which will not have return type
+•	Constructor can be overloaded 
+
+
+Threads
+Multiprocessing: if a job is computed by using more than on micro processer is called multi-processing    
+
+Example: When Salary is processed first 20000 is processed in one computer and another 20000 in different computer
+
+If computer has got more than 1 processer it's also a multi-processing 
+
+When we run our realtime application front end maybe in one server and backend maybe in separate server
+
+Multi User: In a software (OS or any other kind of software) at a time if multiple users can login is called multi user
+
+Windows is not multi user, reason is it will switch user
+
+All Unix is multi user
+
+Oracle is multi user
+
+Multi Programming: We can run multiple program parallel to another 
+
+Example: MS word is multi program
+
+Typing something and listening to song is also a multi programming 
+
+Multi-Threading : Multi-Threading is part of same program where the part of same program can be executed parallelly, which is also called as concurrent programming.
+
+Inorder to design game we should have multi-threading 
+
+Multi-Threading is also called light weight code, because the program is already in memory. No need to allocate resources hence called light weight 
+
+Note: Program is heavy weight where as Thread are light weight. Java support multi-threading 
+In Java multi-threading can be created by extending a thread super class or implementing a runnable interface. In Java we have to override run method which function like a thread that means when run method start thread begins, when run method close thread closes. Here only run is thread other methods are not threads
+Note: When run method calls other methods or any other data. It should be synchronized (the meaning of synchronized is when one thread is calling data or method, other thread will be in wait state)
+In java run method should not be called directly. It should be called using a start method.
+ 
+Context Switching: When one thread will stop and another thread will get executed, it's called context switching. (According to basics of electronic or micro processers, micro processer can only execute only one instruction at a time). In java the context switching is sleep, wait, notify, notifyall, or any IO statement 
+Note : When context switching is not given in the thread it will adopt "round robin technique". Round robin technique - every task will be given few milliseconds. Time is distributed equally. 
+ 
+Threads are unpredictable, OS will pick up any thread it wants and run program
+Supplying  
+ 
+Files
+Stream: Binary files (non ascii format like image, sound)
+Reader/Writer: Which is specially for text format
+How device will communicate
+Windows and Unix the device is considered as File
+
+Port is used to read and write
+
+Place where data is written is called buffer
+
+Java will support the buffer reader and writer 
+
+ 
+Normally the IO messages or message given in UI or Placeholder given in UI we should read it from Property Files
+All error messages or message user want should be stored in property files.
+A property file is nothing but which contain key and values. Based on key we can get value
+
+
+Maven---------------------
+
+Maven is a build tool which is used to create a java project of different architype.
+Architype say what kind of project we are developing.
+
+Eg : normal java project, J2E project, SpringMVX project, etc.
+
+Here according to architype maven will create project structure that suit
+project. Maven will also compile.
+1.mvn compile : to compile a project
+2.mvn clean : to remove previous compilation
+3.mvn test : to run all test case and generate a report
+4.mvn package : do all the above 3 and also create .jar file for deployment
+
+Note : The simple architype for normal java project is quick start. When we 
+create a maven project which is nothing but a package structure. Package structure
+should always match our project.
+
+Eg : com.natwest.billing*
+

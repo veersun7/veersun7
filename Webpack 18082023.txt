@@ -1,0 +1,11 @@
+Webpack : A webpack is a process of creating a front end bundle which contains all HTML,CSS and JS files which is
+compiled and bundled with the library. In the webpack, only the components will be added and the rest will be eliminated.
+Hence only necessary library will be added and the size of the webpack will become less after compilation. In order to create a webpack
+we need compilers and then we need webpack configuration file. As we discussed earlier the compiler we use for JS to compile is Babel
+compiler.
+
+TO installe babel :
+npm install @babel/core @babel/preset-env @babel/preset-react babel-loader css-loader file-loader sass sass-loader webpack webpack-cli --save
+
+create a file : webpack.config.js
+in configuration,it contains number of JSON object. The different objects are output. devserver, module

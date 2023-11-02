@@ -1,0 +1,22 @@
+
+read -a "enter number" num
+
+enter number 100 200 300 400 500 600 
+
+echo 500 600 700 
+
+
+
+echo $((n1+1))
+
+n1=11
+while [ 11 -le 10 ]  false
+do
+    echo $3
+    n1=` expr $10 + 1 `
+done
+
+n1=1          2  	3
+while 1 -true true	true
+do echo 1     2		3
+

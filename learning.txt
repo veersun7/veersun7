@@ -1,0 +1,59 @@
+create table employees2(
+eid varchar(6) primary key,
+fname varchar(15) not null,
+lname varchar(15),
+dob date
+);
+
+insert into employees2 values('e001','Sachin','Tendulkar','05-may-1980');
+insert into employees2 values('e002','Ravi','Shastri','04-april-1972');
+insert into employees2 values('e003','Virender','Shewag','25-april-1972');
+insert into employees2 values('e004','Mahendra','Dhoni','24-may-1972');
+insert into employees2(eid,fname,dob) values('e005','Raina','24-may-1972');
+
+select fname ||'-' || lname from employees1;
+
+select fname || lname from employees1; -----------to merge both names
+
+select dob as Dateofbirth from employees1;    ------------ alais name
+
+select * from employees1;  ------------- to selct all the columns and rows
+
+select fname, lname from employees1 where fname like ('S%');
+
+select fname from employees1 where fname like ('_a%');
+
+select fname from employees1 where fname like upper ('s%');
+
+alter table employees2 add salary number(10);
+
+update employees2 set salary = 30000;
+
+select fname from employees2 where salary > 20000;
+
+update employees2 set salary = 25000 where fname = 'Sachin';
+
+update employees2 set lname = 'Suresh' where eid = 'e005';
+
+select e.eid, e.ename, e.department_name, e.Annualsalary as salary
+from employees e
+join (
+    select department_name, MAX(Annualsalary) as max_salary
+    from employees
+    group by department_name
+) max_salaries on e.department_name = max_salaries.department_name and e.Annualsalary = max_salaries.max_salary
+order by e.ename asc, e.department_name asc, e.Annualsalary desc;
+
+SELECT e.eid, e.ename, e.department_name, e.Annualsalary AS salary
+FROM employees e
+JOIN (
+    SELECT department_name, MAX(Annualsalary) AS max_salary
+    FROM employees
+    GROUP BY department_name
+) max_salaries ON e.department_name = max_salaries.department_name AND e.Annualsalary = max_salaries.max_salary
+WHERE (e.ename, e.department_name, e.Annualsalary) IN (
+    SELECT ename, department_name, MAX(Annualsalary)
+    FROM employees
+    GROUP BY ename, department_name
+)
+ORDER BY e.ename ASC, e.department_name ASC, e.Annualsalary DESC;

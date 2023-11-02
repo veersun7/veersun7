@@ -1,0 +1,55 @@
+JavaScript
+-------------------------------------------------------------------
+JavaScript is the Programming Language for the Web.
+
+JavaScript can update and change both HTML and CSS.
+
+JavaScript can calculate, manipulate and validate data.
+
+HTML to define the content of web pages
+
+CSS to specify the layout of web pages ---- Cascading stylesheet
+
+JavaScript to program the behavior of web pages
+
+Bootstrap - Bootstrap is a popular open-source front-end framework primarily used for building responsive and visually 
+appealing websites and web applications. It was originally developed by Twitter and has since become one of the most widely used 
+front-end frameworks for web development.
+
+DOM
+---------------------------------------------------------
+The DOM serves as an intermediary between the web page's content and the programming language being used (usually JavaScript).
+The DOM is essential for creating dynamic and interactive web pages
+Document: In the context of the DOM, a "document" refers to an HTML or XML document that makes up a web page
+Object: In programming, an "object" is a self-contained unit that holds data (properties) and can have associated behaviors (methods). 
+Model: The "model" aspect of the DOM represents how the document is structured and how its elements relate to each other 
+HTML
+--------------------------------------
+HTML is essential for building the structure and content of a web page.
+HTML is a markup language for structuring content on web pages, while React is a JavaScript library used to 
+build dynamic and interactive user interfaces
+
+Argument and Parameter
+----------------------
+Parameter: A variable defined in the function, like a "slot" where the function expects to receive specific information.
+Argument: The actual data you provide to the function when you use it. It's like the real "stuff" that goes into those slots.
+name is a parameter of the greet function. It's like a placeholder for the actual name you want to greet.
+When you call the greet function with greet("Alice"), "Alice" is the argument you're providing. It's the actual value that will
+fill the name parameter.
+
+JSON object
+----------------
+A JSON object, short for "JavaScript Object Notation" object, is a data structure used to represent and store 
+data in a structured and easy-to-read format. JSON is commonly used for exchanging data between a server and a 
+web application, as well as for configuration files and data storage.
+
+JSON objects are often compared to JavaScript objects because they share a similar structure, but JSON is a language-independent 
+data format. JSON objects are composed of key-value pairs, where each key is a string, and the corresponding value can be of various 
+data types, including strings, numbers, booleans, null, arrays, or other JSON objects.
+
+
+
+
+
+
+

@@ -1,0 +1,136 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import Navbar from "./Navbar";
+import { AppBar, Typography, Container, Grid, IconButton } from "@mui/material";
+import { Facebook, Twitter, Instagram } from "@mui/icons-material";
+
+const styles = {
+  root: {
+    display: "flex",
+    flexDirection: "column",
+    minHeight: "100vh",
+    backgroundColor: "white",
+    color: "black",
+  },
+  container: {
+    marginTop: "2rem",
+    flex: 1,
+    display: "flex",
+    alignItems: "center",
+    padding: "1rem",
+  },
+  logo: {
+    marginRight: "1rem",
+  },
+  footer: {
+    marginTop: "auto",
+    backgroundColor: "purple",
+    padding: "1rem 0",
+  },
+  link: {
+    color: "white",
+    textDecoration: "none",
+    margin: "1rem",
+  },
+  headerText: {
+    maxWidth: "80%",
+    marginBottom: "1rem",
+  },
+};
+
+// Add responsive styles here
+const responsiveStyles = {
+  container: {
+    flexDirection: "column",
+    alignItems: "center",
+    padding: "1rem 0.5rem", // Adjust padding for smaller screens
+  },
+  headerText: {
+    maxWidth: "100%", // Make text width 100% on smaller screens
+    textAlign: "center", // Center text on smaller screens
+    marginBottom: "0.5rem", // Adjust margin for smaller screens
+  },
+};
+
+function Home() {
+  return (
+    <div style={styles.root}>
+      <Navbar />
+      <AppBar position="static"></AppBar>
+
+      <Container sx={styles.container} style={responsiveStyles.container}>
+        <img
+          src="/images/bass.jpg"
+          alt="DiWallet Services"
+          style={{
+            maxWidth: "100%", // Make the image width 100% on smaller screens
+            height: "auto",
+            marginBottom: "1rem",
+          }}
+        />
+        <div>
+          <h1>Welcome to DiWallet</h1>
+          <Typography variant="body1" style={styles.headerText}>
+            Your Trusted Payment Wallet Platform
+          </Typography>
+
+          <Typography variant="body1" style={styles.headerText}>
+            DiWallet is your go-to wallet platform that allows you to make quick
+            and secure spot cash transactions in foreign exchange, right from
+            the comfort of your chosen location.
+          </Typography>
+
+          <Typography variant="body1" style={styles.headerText}>
+            With DiWallet, you can effortlessly handle payments for a wide range
+            of local services, including medicines, cinema tickets, shopping at
+            malls, and indulging in delicious food and beverages. Whether it's
+            for yourself or your spouse, DiWallet has you covered.
+          </Typography>
+        </div>
+      </Container>
+
+      <footer style={styles.footer}>
+        <Container>
+          <Grid container justifyContent="center" spacing={2}>
+            <Grid item>
+              <IconButton color="primary" aria-label="Facebook">
+                <Facebook />
+              </IconButton>
+            </Grid>
+            <Grid item>
+              <IconButton color="primary" aria-label="Twitter">
+                <Twitter />
+              </IconButton>
+            </Grid>
+            <Grid item>
+              <IconButton color="primary" aria-label="Instagram">
+                <Instagram />
+              </IconButton>
+            </Grid>
+          </Grid>
+          <Grid container justifyContent="center">
+            <Grid item>
+              <Typography variant="body2" color="textSecondary">
+                © 2023 DigiPay
+              </Typography>
+            </Grid>
+          </Grid>
+          <Grid container justifyContent="center">
+            <Grid item>
+              <div>
+                <Link to="/about" style={styles.link}>
+                  About us
+                </Link>
+                <Link to="/contact" style={styles.link}>
+                  Contact
+                </Link>
+              </div>
+            </Grid>
+          </Grid>
+        </Container>
+      </footer>
+    </div>
+  );
+}
+
+export default Home;

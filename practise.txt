@@ -1,0 +1,30 @@
+create table customer(
+cid number(6),
+cname varchar2(20),
+dob date
+);
+
+insert into customer values (001,'Vanitha','20-May-1990');
+insert into customer values (002,'Anitha','20-June-1990');
+insert into customer values (003,'Sunitha','20-Dec-1990');
+insert into customer values (004,'Sumitha','20-Nov-1990');
+
+create table order1(
+cid number(6),
+orderno number(6),
+payment varchar2(10)
+);
+
+insert into order1 values(001,1000,'done');
+insert into order1 values(002,1001,'done');
+insert into order1 values(004,1003,'done');
+
+
+select a.cid,a.cname from customer a inner join order1 b on a.cid = b.cid;
+
+
+select a.cid,a.cname from customer a left join order1 b on a.cid = b.cid;
+
+select a.cid,a.cname from customer a right join order1 b on a.cid = b.cid;
+
+select a.cid,a.cname from customer a full join order1 b on a.cid = b.cid;

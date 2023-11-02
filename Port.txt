@@ -1,0 +1,27 @@
+spring.application.name = eureka
+server port = 8761
+
+client1 : 7071
+client2 : 7072
+apigateway : 6631
+security : 6622
+
+eureka.client.registerWithEureka = true
+eureka.client.fetchRegistry = true
+
+In all the client the above should be true and in server it should be false
+
+FeignClient is added to call the other ms synchoronously which is a alternative for rest service
+
+Every client we should add server address compulsory
+
+We can call other ms using a Rest template or feign client.
+
+To call other ms using feign client we should create a interface.
+
+
+jwt - Java Web Token
+
+Security :
+
+Web, Devtools,Lombok,Eureka Client,Data MongoDB,JPA,Spring Security

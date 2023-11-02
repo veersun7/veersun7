@@ -1,0 +1,301 @@
+To create a react
+npx create-react-app (appname) = npx create-react-apppname reactapp1
+To run the react app
+npm start
+
+
+  cd reactapp1
+  npm start
+
+
+
+ubuntu@ip-172-31-36-45:~/reactprac$ cd reactapp1
+ubuntu@ip-172-31-36-45:~/reactprac/reactapp1$ code .
+
+
+Note : all the component name should start with capital letter and let the extension be jsx
+
+note 2 : the component should return one div tag if there are multiple div tags all the div tag should be embedded in
+one div tag.
+
+note 3 : In react class is a keyword to specify class selector we should use something called className
+
+note 4 : whenever we use a class component we cannot have a direct return statment. The return statement should be embedded
+in within the render method.
+
+import React from "react";
+class Add extends React.Component {
+  state = {
+    num1: 0,
+    num2: 0,
+    num3: 0,
+  };
+  f1 = (event) => {
+    event.preventDefault();
+    let n1 = this.num1 + this.num2;
+    this.setState((this.num3 = this.num1 + this.num2));
+  };
+  render() {
+    return (
+      <div className="container col-5 mt-3">
+        <form onSubmit="f1()">
+          <div className="form-group col-5 mt-2">
+            <label for="a1">Enter number one</label>
+            <input
+              type="text"
+              class="form-control-file"
+              id="a1"
+              value={this.state.num1}
+              onChange={(event) => {
+                this.setState((this.num = event.target.value));
+              }}
+            />
+          </div>
+          <div className="form-group col-5 mt-2">
+            <label for="a2">Enter number two</label>
+            <input
+              type="text"
+              class="form-control-file"
+              id="a2"
+              value={this.state.num1}
+              onChange={(event) => {
+                this.setState((this.num = event.target.value));
+              }}
+            />
+          </div>
+          <div className="form-group col-5 mt-2">
+            <label for="a3">Result</label>
+            <input type="text" class="form-control-file" id="a3" />
+          </div>
+          <div className="form-group col-5 mt-2">
+            <button type="button" className="btn btn-primary">
+              Add
+            </button>
+          </div>
+        </form>
+      </div>
+    );
+  }
+}
+export default Add;
+
+-------------------------------------------------------------------------
+const[num1,setNum1]=useState(0);
+num1 is variable name
+setNum1 method name we are specifying in order to change the value
+useState this will be added to state ,part of react
+
+React support one way binding : means whatever data in state that will be reflected
+in textbox or output. Whenever there is a change in the state the output where it is connected will get
+automatically refreshed. When there is change in state display will be repeated. If there is change 
+in textbox the change value will not go state until we handle onChange event.
+
+whereas angular suports two way binding : change in state will reflect in output and if there
+is change in ouput it will reflect 
+
+Props : One component can call another component. When we call other component if we want to pass certain arguments to that and this called as
+props.=>Properties
+
+
+Router :
+
+we need to add the router library as below :
+
+npm install react-router-dom--save
+
+whenever react router has to be created we need to add below libraries
+import(BrowserRouter as Router,Route,Switch)
+We need to create a browser router 
+inside this we need to create route, link, path and switch
+Path is nothing but url where or which component we need to call
+
+npm install react-router --save
+
+import { useState } from "react";
+
+function Login() {
+  const [login, setLogin] = useState({ user: "", pass: "" });
+  const [loginmsg, setLoginmsg] = useState("");
+  const [flag, setFlag] = useState(false);
+
+  let checkLogin = (event) => {
+    event.preventDefault();
+    if (login.user === "Admin" && login.pass === "password") {
+      setLoginmsg("Login Successful");
+      setFlag(true);
+    } else {
+      setLoginmsg("Invalid Username or Password!");
+      setFlag(false);
+    }
+  };
+
+  let buttoncheck = () => {
+    if (flag) {
+      return (
+        <button type="submit" disabled>
+          Submit
+        </button>
+      );
+    } else {
+      return <button type="submit">Submit</button>;
+    }
+  };
+  return (
+    <div>
+      <form onSubmit={checkLogin}>
+        <div>
+          <label>Username</label>
+          <input
+            type="text"
+            id="user"
+            onBlur={(e) => {
+              setLogin({ user: e.target.value, pass: login.pass });
+            }}
+            autoFocus
+          />
+        </div>
+        <div>
+          <label>Password</label>
+          <input
+            type="password"
+            id="pass"
+            onBlur={(e) => {
+              setLogin({ user: login.user, pass: e.target.value });
+            }}
+          />
+        </div>
+        {buttoncheck()}
+      </form>
+      <div>{loginmsg}</div>
+    </div>
+  );
+}
+
+export default Login;
+
+-------------------
+step 1 : create a project using npx create-react-app (project name)
+
+step 2 : install the below packages
+
+npm install react-router
+npm install react-router-dom
+npm install axios
+
+
+step 3 : open the project cd (project name)
+
+
+testing libraries---
+npm install enzyme --save-dev
+npm install jest --save-dev
+npm i @cfaester/enzyme-adapter-react-18
+npm install react-test-renderer --save-dev
+
+
+Redux------------
+Add redux libraries :
+
+npm install redux
+npm install react-redux
+
+important note :
+We need to have store folder inside src folder
+inside the store folder we should create compulsory index.js which is a container to hold the data or a state
+import { legacy_createStore as createStore } from "redux";
+
+Reducer is created to change state which contains state  and action as argument
+note:this reducer should be passed to create store so that when there is change in state dispatcher will call this particular
+reducer.
+note2:while initialize state we should well plan and add the necessary data into state. Here we use a counter as initial data and in 
+later data we use another json object
+note3:remember the state should be accessed by all the components in application. Hence state should be provided to application at 
+root level so that all components can inherit.
+note4:we can provide the state using the component providers. Provider will provide state to entire application and store to be 
+imported and given as props under provider.
+
+note5:create a component to use counter state since we are using state here we should use useSelector 
+
+As soon as we open store, form should have initial value.
+
+
+
+npm install @reduxjs/toolkit
+
+
+
+-----------------------
+
+Create react project
+install redux and react-redux
+install redux toolkit
+create a store folder inside src
+create index.js inside store folder
+update provider in main index.js
+import provider from react-redux
+when we are working with toolkit we have to create slice which 
+contains initial state, reducer and function in reducer for upate
+note:when we use slice, we will not use type. We directly create the methods
+or functions for updation.
+inside slice we should give name for initial object
+
+
+update the redux by adding isLogin is flase.
+Store:Username and password in redux
+
+
+Anything that cannot be changed is called immutable
+Anything that can change is called mutable
+I can do changes in mutable
+I cannot do changes in immutable
+
+useState is immutable
+
+Data ={
+User:state.user
+}
+
+In js or react when we talk about immutable it is regarding variable or collection
+
+Collection is a place where we store some data.
+Variable is collection, Array is collection
+List only contains value - a group/array of data with duplicate elements
+Set contains value - it is same thing like list but not duplicate
+Map contains key value pair
+
+npm install immutable
+
+
+-----------------------------------------------------------------------
+Memoization :
+
+is the concept the increasing the performance using the method called useMemo
+
+whenever lots of render happens we use useMemo
+import { Button, TextField } from "@mui/material";
+import { Container } from "@mui/system";
+
+  <Container>
+        <Button variant="text">Text</Button>
+        <Button variant="contained">Contained</Button>
+        <Button variant="outlined">Outlined</Button>
+      </Container>
+      <Container>
+        <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+        <TextField id="filled-basic" label="Filled" variant="filled" />
+        <TextField id="standard-basic" label="Standard" variant="standard" />
+      </Container>
+
+------------------------
+install json server globally
+npm install -g json-server
+create a new folder in main
+create file db.json
+npx json-server --watch database/db.json --port 8089
+
+
+----------------
+
+Axios is a popular JavaScript library that is commonly used for making HTTP requests from a web browser or Node.js. 
+It simplifies the process of sending asynchronous HTTP requests to web servers and receiving responses. 
+Axios provides a simple and consistent API for handling various types of HTTP requests, including GET, POST, PUT, DELETE, and more.

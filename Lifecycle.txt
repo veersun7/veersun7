@@ -1,0 +1,8 @@
+Life cycle hook
+When the component is concerned there are three stage
+1.Mount
+2.Un-mount
+3.Update
+Important note : Whenever there is a change in the state(state contains certain data change in state, there is change in
+the data)react component will be re-loaded(note once against the complete page is not reloaded only the component which
+state is changed is reloaded)

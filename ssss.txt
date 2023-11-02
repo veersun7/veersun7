@@ -1,0 +1,41 @@
+#!/bin/bash
+read -p "Enter number of lines: " nl
+n1=1
+while [ $n1 -le $nl ]
+do
+j=1
+while [ $j -le $n1 ]
+do
+echo -n $j
+j=` expr $j + 1 `
+done
+echo
+n1=` expr $n1 + 1 `
+done
+
+# Lets see how to create a shell script to accept a number for lines.
+
+# enter #! /bin/bash - this is to create a bash script.
+
+# then we have to add the variable with a prompt saying "Enter number of lines". We are going to name this variable as nl.
+
+# then we are going to add another variable as n1 and give value for that variable as 1.
+
+# then we are going to insert while loop concept. When n1 is less than or equal to nl then condition is satisfied. For example if we give nl as 5
+and n1 is 1 which is less than 5. So it goes to the loop concept.
+
+# do means if the condition is yes it goes to the loop.
+
+# then we are adding another variable here j and give the value as 1.
+
+# then we are going to insert while loop concept again. This is called nested loop. J value is 1 and it is less than or equal to n1 value and condition is satisfied.
+
+# next step it goes to the loop and it prints value of j which is 1 and by adding echo -n it will not move to the next line.
+
+# next step we are going to add arithmetic computation for variable j using expression command. j value becomes 2,3,4..... And this nested loop concept gets over
+when the value of j is more than the value of n1.
+
+# next step we are going to add arithmetic computation for variable n1 using expression command. This is for the while loop we added first. Here value for variable n1
+changes from 2,3,4... Once the n1 value becomes 2 it goes to the 1st while condition. eg : nl is 5 and n2 is 2 and the condition is satisfied. Then J value becomes 2
+and it is less than or equal to n1 value which is 2 and condition is satisfied. This is how the loop continues till the both conditions are unsatisfied i.e n1 value
+is more than nl value. This where the loop ends.

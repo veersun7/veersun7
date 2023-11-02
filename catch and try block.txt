@@ -1,0 +1,37 @@
+it("add union 1 number and 1 string", () => {
+    try {
+        let actual = addunion("6", 7);
+        let expected = 13;
+        assert.fail();
+    } catch (err) {
+        assert.equal(err.message, "Datatype mismatch");
+    }
+});
+it("add union 1 number and 1 string", () => { ... }:
+
+This is a test case description. It's typically used in testing frameworks like Mocha to describe what the test case is checking.
+try { ... } catch (err) { ... }:
+
+This construct is used to handle potential errors (exceptions) that might be thrown during the execution of the code within the try block.
+let actual = addunion("6", 7);:
+
+This line attempts to call the addunion function with arguments "6" (a string) and 7 (a number). Since the function is designed to handle cases of mismatched data types, it is expected to throw an error.
+let expected = 13;:
+
+This line defines an expected variable with the value 13. This is not used in the current version of the test, but it seems like you might have intended to compare the result of addunion with this value. However, this comparison is not present in the provided code.
+assert.fail();:
+
+This line intentionally fails the test case. It's typically used to indicate that a specific branch of the code should not be reached.
+catch (err) { ... }:
+
+If an error is thrown in the try block, this catch block is executed. The err variable captures the error object.
+assert.equal(err.message, "Datatype mismatch");:
+
+This line uses the assert.equal() function to compare the error message (err.message) with the expected error message "Datatype mismatch". If the error message matches, the test case is considered successful.
+This test case is essentially checking if the addunion function correctly throws an error with the expected error message when provided with arguments of mismatched data types (string and number).
+
+Note: The expected variable is defined but not used in the provided code. If you intend to compare the result of addunion with an expected value, you would need to modify the test case to call the function without throwing an error and then compare the result with the expected value.
+
+
+
+

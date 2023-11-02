@@ -1,0 +1,133 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { useParams, useNavigate } from "react-router-dom";
+import { logoutUser } from "../store/action";
+import { Grid, Typography, AppBar, Toolbar, IconButton } from "@mui/material";
+import { ExitToApp } from "@mui/icons-material";
+
+const styles = {
+  container: {
+    textAlign: "center",
+    padding: "2rem",
+  },
+  greeting: {
+    fontSize: "1.5rem",
+    fontWeight: "bold",
+    marginBottom: "1rem",
+  },
+  linkContainer: {
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "center",
+  },
+  link: {
+    color: "black",
+    textDecoration: "none",
+    margin: "1rem",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    transition: "transform 0.2s ease-in-out",
+    "&:hover": {
+      transform: "scale(1.05)",
+    },
+  },
+  image: {
+    width: "100px",
+    height: "100px",
+    marginBottom: "0.5rem",
+    borderRadius: "50%",
+  },
+  logoutButton: {
+    position: "absolute",
+    top: "1rem",
+    right: "1rem",
+  },
+};
+
+function Dashboard() {
+  const { username } = useParams();
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    dispatch(logoutUser());
+    navigate("/login");
+  };
+
+  if (!user) {
+    return (
+      <div>
+        <p>You are not logged in.</p>
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <AppBar position="static" color="default">
+        <Toolbar>
+          <Typography variant="h6">DiWallet Dashboard</Typography>
+          <IconButton
+            edge="end"
+            color="inherit"
+            onClick={handleLogout}
+            sx={{ ml: "auto" }}
+          >
+            <ExitToApp />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
+      <div style={styles.container}>
+        <Typography variant="h4" style={styles.greeting}>
+          Welcome, {username}!
+        </Typography>
+        <p>This is your Dashboard. Select a category:</p>
+        <div style={styles.linkContainer}>
+          <Grid container spacing={3}>
+            <Grid item xs={6} sm={3}>
+              <Link to="/Medicine" style={styles.link}>
+                <img
+                  src="/images/one.jpeg"
+                  alt="Medicine"
+                  style={styles.image}
+                />
+                Medicine
+              </Link>
+            </Grid>
+            <Grid item xs={6} sm={3}>
+              <Link to="/Cinema" style={styles.link}>
+                <img src="/images/two.jpg" alt="Cinema" style={styles.image} />
+                Cinema
+              </Link>
+            </Grid>
+            <Grid item xs={6} sm={3}>
+              <Link to="/Mall" style={styles.link}>
+                <img
+                  src="/images/three.webp"
+                  alt="Malls"
+                  style={styles.image}
+                />
+                Malls
+              </Link>
+            </Grid>
+            <Grid item xs={6} sm={3}>
+              <Link to="/Food" style={styles.link}>
+                <img
+                  src="/images/four.jpg"
+                  alt="Food & Beverages"
+                  style={styles.image}
+                />
+                Food & Beverages
+              </Link>
+            </Grid>
+          </Grid>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Dashboard;

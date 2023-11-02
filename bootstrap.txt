@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Web Page</title>
+   <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark fixed-top navbar-dark">
+    <div class="container">
+            <a href="#" class="navbar-brand"><img src="./asset/istockphoto-1300754614-612x612.jpg" alt=""width="250w" height="50vh"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"data-bs-target="#navmenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+               <a href="#" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="right" title="What you'll learn" target="_blank">What you 'll learn</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="right" title="How it works" target="_blank">How it works</a>
+             </li>
+             <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button"> Career outcomes</a>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                    <li>
+                        <a href="#" class=""dropdown-item>Web design</a>
+                    </li>
+                    <li>
+                        <a href="#" class=""dropdown-item>Web development</a>
+                    </li>
+                    <li>
+                        <a href="#" class=""dropdown-item>Graphic design</a>
+                    </li>
+             </li>
+             </ul>
+         </div>
+    </div>
+
+</nav>
+<!-- Hero Element --->
+<section class="bg-dark p-5 text-light text-center text-sm-start mt-5">
+    <div class="container">
+        <div class="d-sm-flex align-items-center justify-content-between">
+            <div>
+                <h1>Welcome to Tech World<span class="text warning">-Your Gateway to a Rewarding Software Engineering Career!</span>
+                </h1>
+                <p class="lead my-4">
+                    At Tech World, we are dedicated to empowering aspiring software engineers with the knowledge, skills, and resources they need to embark on a successful and fulfilling career in the ever-evolving tech industry. Our mission is to bridge the gap between ambition and achievement, guiding talented individuals towards their dream professions and helping them navigate the exciting world of software engineering.
+                </p>
+                <a href="#" class="btn btn-outline-light streched-link" target="_blank">Apply Now</a>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<!-- Footer --->
+<footer class="p-5 bg-dark text-white text-center position-relative">
+    <div class="container">
+        <p class="lead">
+            &copy; 2023 <a href="">Terms of use | <a href="#"> Privacy Policy</a></a>
+        </p>
+        <div class="row">
+            <div class="col-md-4">
+                <h6>SITE LINKS</h6>
+                <p>
+                    <a href="#">Contact Us<br/></a>
+                    <a href="#">About Us<br/></a>
+                    <a href="#">Directions<br/></a>
+                    <a href="#">Blog<br/></a>
+                </p>
+            </div>
+            <div class="col-md-4">
+                <h6>OUR PROGRAMS</h6>
+                <p>
+                    <a href="#">Software Engineering<br/></a>
+                    <a href="#">DevOPS<br/></a>
+                    <a href="#">Data Analyst<br/></a>
+                    <a href="#">Data Scientist<br/></a>
+                </p>
+            </div>
+            <div class="col-md-4">
+                <h6>MORE INFO</h6>
+                <p>
+                    <a href="#">Promotions<br/></a>
+                    <a href="#">Partners<br/></a>
+                    <a href="#">Careers<br/></a>
+                    <a href="#">FAQs<br/></a>
+                </p>
+            </div>
+        </div>
+        <hr/>
+        <div class="row">
+            <div class="col-md-9">
+                <div class="input-group news-input">
+                <input type="text" class="form-control" placeholder="Your Email">
+                <button class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#subscribe" type="button">Subscribe</button>
+            </div>      
+        </div>
+        <div class="col-md-3">
+            <bi class="bi-facebook h4"></bi>
+            <bi class="bi-twitter h4"></bi>
+            <bi class="bi-instagram h4"></bi>
+            <bi class="bi-linkedin h4"></bi>
+        </div>
+    </div>
+</div>
+</footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
