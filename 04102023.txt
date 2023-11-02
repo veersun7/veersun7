@@ -1,0 +1,23 @@
+1176541
+1176549
+
+
+npx create-reactapp- front-end-4
+
+git switch dev
+
+code .
+
+npm i
+
+npm i react-router
+npm i react-router-dom
+npm i redux
+npm i react-redux
+npm install @reduxjs/toolkit
+npm i axios
+npm i jest
+npm i enzyme -dev
+
+
+
