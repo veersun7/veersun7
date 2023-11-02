@@ -1,0 +1,28 @@
+{
+    "userreg": [
+{
+    "id": "s01",
+    "fname": "Diana",
+    "email": "diana@gmail.com",
+    "password": "password"
+},
+{
+    "id": "s02",
+    "fname": "Melvin",
+    "email": "melvin@gmail.com",
+    "password": "welcome"
+},
+{
+    "id": "s03",
+    "fname": "Nancy",
+    "email": "nancy@gmail.com",
+    "password": "Hello"
+},
+{
+    "id": "s04",
+    "fname": "Joe",
+    "email": "joe@gmail.com",
+    "password": "Goodluck"
+}
+]
+}

@@ -1,0 +1,95 @@
+#a1{
+    color :blue;
+    Font-size : larger ;
+}
+
+#a2{
+    color : green ;
+    font-size : x-large ;
+}
+
+#n2:hover {
+    text-transform: uppercase ;
+}
+
+.page{
+font-family : 'Times New Roman', Times, serif ;
+}
+
+.page1{
+    font weight : 500 ;
+}
+
+body {
+    Background-color : white ;
+
+}
+
+#n1{
+    text-align : center;
+}
+
+.img1{
+    border : 4px red solid;
+    border-radius : 30% ;
+    shape-margin : 100px ;
+
+}
+
+.img1:hover{ 
+    transform : scale(150%) ;
+    border-radius: 50% ;
+    box-shadow: black 20px;
+    padding: 10px ;
+
+}
+
+h1{
+    color : red ;
+}
+
+.container {
+    display : flex ;
+    flex-direction : row ;
+    flex-wrap : wrap ;
+    width : 100vw ;
+    height : 100vh ;
+
+}
+
+.inner-container {
+    box-sizing : border-box ;
+    margin: 0.75em ;
+    padding: 0.35em ;
+    width: 27% ;
+    color: greenyellow ;
+    transition : color 0.9s ease-in-out ;
+    background-color: gray ;
+    border : 1px solid ;
+    
+}
+
+.inner-container:hover {
+    color : rgb(255, 0, 140) ;
+    transform : scale (110%);
+
+}
+
+@media screen and (max-width : 610px) and (min-width : 421px) {
+    .inner-container {
+        width : 42% ;
+
+    }
+    h1 {
+        color : green ;
+}
+}
+
+@media screen and (max-width : 420px) {
+    .inner-container {
+        width: 100% ;
+    }
+    h1 {
+        color : purple ;
+    }
+}

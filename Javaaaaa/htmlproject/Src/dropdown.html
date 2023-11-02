@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id= "changetext"> Hello! </h1>
+
+    <form>
+        <select name="" id="a1">
+            <script language="javascript">
+                let arr =['green', 'red', 'blue', 'violet', 'yellow', 'pink']
+                for (i =0; i< arr.length; i++){
+                    let p = '<option value="'+arr[i]+'">' +arr[i] +'</option>'
+                    document.write(p)
+                }
+            </script>
+<!------
+        use the below options for showing just 4 colours:
+            <option value="green">Green</option>
+            <option value="red">Red</option>
+            <option value="blue">Blue</option>
+            <option value="violet">Violet</option>
+        ---->
+
+        </select>
+    </form>
+    <script src ="/Src/js/dropdown.js"></script>
+    </body>
+</html>

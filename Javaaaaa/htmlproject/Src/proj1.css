@@ -1,0 +1,63 @@
+body{
+    margin: 0 0 0 0;
+    display: flex;
+    flex-direction: column;
+}
+.head{
+    height: 10vh;
+    background-color: gold;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding-top:  4vh;
+}
+.fweight{
+    font-weight:bold;
+    font-size: large;
+}
+.btn{
+    width: 50px;
+    text-align: center;
+    font-weight:bold;
+    padding:5px;
+    margin-left: 5px;
+}
+.dis{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.btn :hover{
+    background-color: black;
+    color: white;
+}
+.bdy{
+    height: 80vh;
+    background-color:lightgray;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.dbcontainer{
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    padding-left: 40px;
+    width: 40vw;
+    border: 4px black solid;
+    border-radius: 5px;
+    height: 60vh;
+    margin-top: 10vh;
+    margin-left: 30vw;
+}
+.footer{
+    height: 10vh;
+    background-color: gold;
+    display: flex;
+    justify-content: space-between;
+}
+.inp{
+    width: 25vw;
+    height: 30px;
+    margin-top: 10px;
+}

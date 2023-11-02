@@ -1,0 +1,26 @@
+{
+  "userreg": [
+    {
+      "id": "s01",
+      "name": "Shawn",
+      "email": "shawn@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "s02",
+      "name": "John",
+      "email": "john@gmail.com",
+      "password": "123456"
+    },
+    {
+      "username": "jo",
+      "email": "jo@gmail.com",
+      "mobileNumber": "7765544444",
+      "accountNumber": "7657",
+      "password": "44444444",
+      "confirmPassword": "44444444",
+      "address": "hbvjgj",
+      "id": "uRvnYPJ"
+    }
+  ]
+}
