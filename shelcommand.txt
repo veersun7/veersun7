@@ -1,0 +1,88 @@
+# shell command to show directroy and folder current folder
+# will give only the files and directory without detail
+ls
+
+# to see the file and directory of other folder we need to give path
+ls /home/ubuntu
+Note : at end donot use / like windows 
+
+# this command will show all the file in long mode  with permissin
+date time and
+ls -l 
+
+# to show only directory 
+ls -d
+
+# to show all hidden files 
+ls -a 
+
+# man command will give the details of the command
+# that we specifiy   to quit from the display we need
+# type quit
+
+man ls 
+
+# to create a empty file Note if the file is
+# alread present it re-create so we will lose the content
+touch msfile1
+
+Note : like windows there is no extension in the unix
+so we create x or x.java 
+
+# to create a new folder
+mkdir temp1
+
+# to get inside the folder we use cd and folder name
+cd temp1
+
+# to come back to root folder 
+cd
+
+# to come back from current folder 
+cd ..
+
+# we use cd and path it changes to the path given
+cd /home/ubuntu/day1coding/shellcommands
+ls
+
+# to see the path of the where we are pwd : present working directory
+pwd
+
+# How to see the conntent from a file 
+cat filename 
+Note : when ever we give filename it better to give with path
+
+# how add content to a empty file
+cat > filename
+
+we use cntl+z to stop typeing
+Note : if the file is not empty then the old content 
+        wil get erased 
+
+# How to append the contents to the exsiting file 
+cat >> filename 
+Note : this will append the exsiting content
+also use cntl + z to stop typeing 
+
+# how to merge two files to a signle file 
+cat file1 file2 > file3
+cat file1 file2 >> file3
+
+# how to remove a file
+rm filename
+
+# how to remove the directory
+rm -d directoryname 
+Note the directoy should be
+
+# how to copy a file 
+cp filename targetname
+file file
+file folder use option -r
+folder folder 
+
+# how to rename the file
+mv sfile tfile 
+
+# how to rename a directory
+mv -r sdir tdir

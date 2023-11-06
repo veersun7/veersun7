@@ -1,0 +1,20 @@
+#i /bin/bash
+#create shell script to find the given string 
+#in the given 
+
+read -p "enter a string" str
+if [[ $str == *"age"* ]]
+then 
+echo " string is present "
+fi
+
+#otherway
+
+read -p "enter a string" str
+read -p "enter a sub string" sstr
+if [[ $str == *"$sstr"* ]]
+then 
+echo "present"
+else
+echo "not present"
+fi

@@ -1,0 +1,8 @@
+#! /bin/bash
+#display first name middle name and last name
+#greet with full name
+
+read -p "enter first name" fname
+read -p "enter middle name " mname
+read -p "enter last name " lname
+echo " Welcome $fname $mname $lname"

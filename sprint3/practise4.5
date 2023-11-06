@@ -1,0 +1,16 @@
+#! /bin/bash
+#create a shell script to perform login check
+#user name any password admin
+#sample input any user name
+#if password correct your login is successful
+#else Sorry username couldnt login, please
+#check your credential
+
+read -p " Enter user name :" uname
+read -sp "Enter password :" pword
+if [ $pword == admin ]
+then
+echo " your login is successful "
+else
+echo "Hi $uname, couldn't login, please check your credential"
+fi

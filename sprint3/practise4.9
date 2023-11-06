@@ -1,0 +1,24 @@
+#! /bin/bash
+#create an array for customer names and 
+#one another array for salary Find which employee is 
+#ligible to apply loan
+#(customer eligible to apply loan must have salary 
+#greater than or equal to 15000 )
+
+echo " Enter customer names " 
+read -a cust
+echo " Enter their salaries "
+read -a sal
+n1=0
+while [ $n1 -lt ${#cust[*]}     ]
+do
+echo ${cust[n1]}
+echo ${sal[n1]}
+if [ ${sal[n1]} -ge 15000 ]
+then
+echo "${cust[n1]} eligibile for loan"
+else
+echo "${cust[n1]}  not eligibile for loan"
+fi
+n1=` expr $n1 + 1 `
+done

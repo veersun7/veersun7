@@ -1,0 +1,15 @@
+#! /bin/bash
+#create a shell script to print factorial
+#of a numner using function
+#enter numner and get factorial
+
+read -p "enter a number " num
+n1=1
+a1=1
+while [ $n1 -le $num ]
+do
+a1=` expr $a1 \* $n1 `
+n1=` expr $n1 + 1 `
+done
+echo "factorial of $num = " $a1
+

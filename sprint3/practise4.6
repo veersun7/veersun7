@@ -1,0 +1,16 @@
+#! /bin/bash
+#create script to print the odd numbers 
+#from the given range of numbers
+read -p "enter the range of numbers : " n1
+i=1
+while [ $i -le $n1 ]
+do
+rs=` expr $i % 2 `
+if [ $rs -eq 1 ]
+then
+echo -n $i
+fi
+i=`expr $i + 1 `
+done
+echo
+echo "-------over------"

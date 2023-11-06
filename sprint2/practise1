@@ -1,0 +1,17 @@
+#! /bin/bash
+#exercise 1
+#print to "welcome to stackroute"
+
+echo "Welcome to stackroute"
+
+#exercise 2
+#print Welcome to stackroute using variable
+
+var='Welcome to StackRoute'
+echo $var
+
+#execcise 3
+#to print length of the string
+str="Welcome to Stack Route"
+n=${#str}
+echo "length of the string is $n"   

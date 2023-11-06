@@ -1,0 +1,13 @@
+#! /bin/bash
+#create a shell script to print factorial
+#of a numner using function
+#enter numner and get factorial
+
+read -p "enter a number " num
+n1=1
+while [ $num -ge 1 ]
+do
+n1=` expr $n1 \* $num `
+num=` expr $num - 1 `
+done
+echo "factorial = " $n1

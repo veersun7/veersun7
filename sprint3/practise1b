@@ -1,0 +1,5 @@
+#! /bin/bash
+#write a script to print all the related informatiom in present working directory
+read -p "enter file name" fname
+echo |pwd
+echo |ls -l | cat $fname

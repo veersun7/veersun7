@@ -1,0 +1,23 @@
+#! /bin/bash
+#create a shell script to accept number lines (for lines)
+#print flag for entered no of lines
+#Ex no of line 5
+#1
+#1 2
+#! 2 3
+#1 2 3 4
+#1 2 3 4 5
+
+read -p "read the numner of lines " nl
+n1=1
+while [ $n1 -le $nl ] 
+do
+j=1
+while [ $j -le $n1 ]
+    do
+    echo -n $j
+    j=` expr $j + 1 ` 
+    done
+    echo
+n1=` expr $n1 + 1 `
+done

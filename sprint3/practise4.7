@@ -1,0 +1,16 @@
+#! /bin/bash
+#create a shell script to find whether 
+#given account is valid or not
+#account number has 13 digits it is valid
+#else unvaild
+
+read -p "Enter the account number" acc
+n=${#acc}
+if [ $n -eq 13 ]
+then 
+echo "Given account number is valid"
+else
+echo "Given account numner is not valid"
+fi
+
+

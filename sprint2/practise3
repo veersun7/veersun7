@@ -1,0 +1,17 @@
+#! /bin/bash
+#to print the largest of 3 number
+
+read -p "enter first number" a
+read -p "enter second number" b
+read -p "enter third number" c
+
+if [[ $a -gt $b && $a -gt $c ]]
+then
+echo $a
+elif [ $b -gt $c ]
+then 
+echo $b
+else
+echo $c
+fi
+

@@ -1,0 +1,16 @@
+#! /bin/bash
+#write a script to rename files replaced by upper case letters
+#just for dispaly
+
+read -p "enter file name " fname
+echo $fname | tr [:lower:] [:upper:] 
+#this command is used to change lower case to upper
+f2=${fname^^}
+echo $f2
+#this command is used to change upper case to lower
+f2=${fname,,}
+echo $f2
+
+
+
+

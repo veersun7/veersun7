@@ -1,0 +1,22 @@
+#! /bin/bash
+#create a shell script to find given number
+#prime or not
+
+read -p "Enter the number" num
+n1=2
+flag=0
+while [ $n1 -lt $num ]
+do
+ remai=` expr $num % $n1 `
+ if [ $remai -eq 0 ]
+ then 
+ flag=1
+ fi
+n1=` expr $n1 + 1 `
+done
+if [ $flag -eq 1 ]
+then
+echo "$num is not a prime"
+else 
+echo "$num is a prime"
+fi
